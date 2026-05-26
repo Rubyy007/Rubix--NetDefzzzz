@@ -1,0 +1,81 @@
+Metadata-Version: 2.4
+Name: rubix_defzz
+Version: 1.0.1
+Summary: RUBIX — AI-Powered Network Defence System (IDS/IPS)
+Author: Manik
+License: Proprietary
+Keywords: network,security,ids,ips,packet-capture,firewall
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# RUBIX — Network Defence System
+
+AI-powered IDS/IPS with real-time packet inspection, kernel-level blocking via WFP (Windows) and nftables (Linux), process attribution, and threat detection.
+
+## Install
+
+**Windows** — run PowerShell as Administrator:
+```
+pip install rubix-defzz
+```
+
+**Linux** — requires root:
+```
+sudo pip install rubix-defzz
+```
+
+That's it. NPcap is installed automatically on Windows. After install, open a new terminal:
+
+```
+rubix          # start the engine
+rubix-cli      # monitor, logs, control
+```
+
+## Requirements
+
+| Platform | Requirement | Installed automatically |
+|----------|-------------|------------------------|
+| Windows 10/11 | NPcap | yes |
+| Windows 10/11 | Administrator (for WFP/firewall) | user must run as admin |
+| Linux (kernel >= 4.14) | libpcap | yes via apt/dnf/pacman |
+| Linux | nftables | yes via apt/dnf/pacman |
+| Linux | CAP_NET_RAW + CAP_NET_ADMIN | yes via setcap |
+
+## Usage
+
+```
+# Start the engine (requires admin/root)
+rubix
+
+# Live monitoring dashboard
+rubix-cli monitor
+
+# Live log stream
+rubix-cli logs
+
+# Normal traffic log
+rubix-cli logs normal
+```
+
+## Config files
+
+| Platform | Location |
+|----------|----------|
+| Windows | C:\Program Files\Rubix\configs\ |
+| Linux | /etc/rubix/ |
+
+Edit `rubix.windows.yaml` or `rubix.linux.yaml` to configure the engine.
+Edit `rules.yaml` to add block/alert/allow rules — changes hot-reload without restart.
+
+## Logs
+
+| Platform | Location |
+|----------|----------|
+| Windows | C:\Program Files\Rubix\logs\ |
+| Linux | /var/log/rubix/ |
+
+Log files: `alerts.log`, `traffic.log`, `errors.log`
+
+## Author
+
+Manik

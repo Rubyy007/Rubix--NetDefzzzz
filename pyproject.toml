@@ -1,0 +1,34 @@
+[build-system]
+requires      = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name            = "rubix"
+version         = "1.0.0"
+description     = "RUBIX — AI-Powered Network Defence System (IDS/IPS)"
+readme          = "README.md"
+license         = { text = "Proprietary" }
+requires-python = ">=3.8"
+keywords        = ["network", "security", "ids", "ips", "packet-capture", "firewall"]
+
+# No Python dependencies — pure installer wrapper
+dependencies = []
+
+[project.scripts]
+# This console_script is the bridge:
+# running `rubix-install` triggers install.main()
+# pip calls it automatically via the post-install hook in setup.py
+rubix-install = "rubix_installer.install:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.setuptools.package-data]
+rubix_installer = [
+    "bin/windows/rubix.exe",
+    "bin/windows/rubix-cli.exe",
+    "bin/linux/rubix",
+    "bin/linux/rubix-cli",
+    "configs/*.yaml",
+    "npcap/npcap-1.88.exe",
+]

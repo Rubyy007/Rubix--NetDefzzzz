@@ -1,0 +1,2 @@
+[console_scripts]
+rubix-install = rubix_installer.install:main

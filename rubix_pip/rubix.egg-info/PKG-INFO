@@ -1,0 +1,64 @@
+Metadata-Version: 2.4
+Name: rubix
+Version: 1.0.0
+Summary: RUBIX — AI-Powered Network Defence System (IDS/IPS)
+Author: Manik
+License: Proprietary
+Keywords: network,security,ids,ips,packet-capture,firewall
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# RUBIX — Network Defence System
+
+AI-powered IDS/IPS with real-time packet inspection, threat detection, and kernel-level blocking.
+
+## Install
+
+**Windows** (run as Administrator):
+```
+pip install rubix
+```
+
+**Linux** (requires root):
+```
+sudo pip install rubix
+```
+
+That's it. NPcap is installed automatically on Windows. After install, open a new terminal:
+
+```
+rubix          # start the engine
+rubix-cli      # monitor, logs, control
+```
+
+## Requirements
+
+| Platform | Requirement |
+|----------|------------|
+| Windows  | NPcap (installed automatically), Administrator privileges |
+| Linux    | libpcap (`apt install libpcap-dev`), root privileges |
+
+## Usage
+
+```
+# Start the engine (requires admin/root)
+rubix
+
+# Live monitoring dashboard
+rubix-cli monitor
+
+# Live log stream
+rubix-cli logs
+
+# Normal traffic log
+rubix-cli logs normal
+```
+
+## Config
+
+| Platform | Location |
+|----------|----------|
+| Windows  | `C:\Program Files\Rubix\configs\` |
+| Linux    | `/etc/rubix/` |
+
+Edit `rubix.windows.yaml` or `rubix.linux.yaml` to configure the engine.
