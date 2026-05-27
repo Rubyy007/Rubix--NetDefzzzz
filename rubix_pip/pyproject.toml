@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name            = "rubix_defzz"
-version         = "1.0.1"
+version         = "1.0.3"
 description     = "RUBIX — AI-Powered Network Defence System (IDS/IPS)"
 readme          = "README.md"
 license         = { text = "Proprietary" }
